@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: darkslategrey;
+  color: white;
+}
+
+button {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background-color: rgb(55, 104, 104);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  color: white;
+  border-radius: 10px;
+}
+
+#exercise-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+  padding: 2rem 1rem;
+}
+#exercise-list .category {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+#exercise-list .category .exercise {
+  text-align: center;
+  width: 50%;
+  padding: 4rem;
+  background-color: rgb(55, 104, 104);
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+#add-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding-block: 2rem;
+  max-width: 80%;
+  margin: 0 auto;
+}
+#add-menu #setInput {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+#add-menu #setInput .input-item {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  justify-content: center;
+  gap: 0.5rem;
+}
+#add-menu #setInput .input-item input {
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: rgb(55, 104, 104);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
+  color: white;
+  text-align: center;
+}
+#add-menu #setInput button {
+  margin-top: 1rem;
+}
+#add-menu #current-sets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#add-menu #current-sets .set {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: rgb(55, 104, 104);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  justify-content: center;
+}
+#add-menu #add-menu-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+#add-menu #add-menu-controls button {
+  width: 100%;
+}
+#add-menu #past-sets-title {
+  margin-top: 2rem;
+}
+#add-menu #past-sets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#add-menu #past-sets .past-set-item {
+  padding: 1rem;
+  background-color: rgb(55, 104, 104);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
+  color: white;
+  border-radius: 10px;
+}
+#add-menu #past-sets .past-set-item .set-date {
+  text-decoration: underline;
+}
+#add-menu #past-sets .past-set-item .set-information {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/main.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="exercise-list">
+        <div class="category">
+            <h2>Legs &#x1FAE0;</span></h2>
+            <div class="exercise">Squat</div>
+            <div class="exercise">Calf Raise</div>
+            <div class="exercise">BSS</div>
+        </div>
+        <div class="category">
+            <h2>Push &#x1F607;</h2>
+            <div class="exercise">Assisted Dips</div>
+            <div class="exercise">Incline Press</div>
+            <div class="exercise">Tricep Pushdown</div>
+        </div>
+        <div class="category">
+            <h2>Pull &#x1F929;</h2>
+            <div class="exercise">Pullups</div>
+            <div class="exercise">Seated Rows</div>
+            <div class="exercise">Bicep Curls</div>
+            <div class="exercise">Hammer Curls</div>
+        </div>
+    </div>
+    <div id="add-menu">
+        <h2 id="exercise-name"></h2>
+        <div id="setInput">
+            <div class="input-item">
+                <label for="">Weight</label>
+                <input type="number" class="weightInput">
+            </div>
+            <div class="input-item">
+                <label for="">Reps</label>
+                <input type="number" class="repsInput">
+            </div>
+            <div class="input-item">
+                <label for="">Rest</label>
+                <input type="number" class="restInput">
+            </div>
+            <button id="add-set-button">Add Set</button>
+        </div>
+        <div id="current-sets">
+
+        </div>
+        <div id="add-menu-controls">
+            <button id="save">Save</button>
+            <button id="back-button">Back</button>
+        </div>
+        <h2 id="past-sets-title">Past Sets</h2>
+        <div id="past-sets">
+        </div>
+    </div>
+</body>
+</html>
