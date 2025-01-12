@@ -17,8 +17,12 @@ const currentSetsContainer = document.querySelector('#current-sets');
 const createCurrentSet = (currentSetsArray) => {
     if (currentSetsArray.target.currentArray.length === 0) {
         const date = new Date();
-        const dateString = `${date.getDay()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-        currentSetsArray.target.currentArray.push(dateString);
+        const dateString = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+        const dateAndId = {
+            date: dateString,
+            id: `${date.getHours()}${date.getMinutes()}${date.getSeconds()}-${date.getDate()}${date.getMonth() + 1}${date.getFullYear()}-${currentSetsArray.target.name}`
+        }
+        currentSetsArray.target.currentArray.push(dateAndId);
     }
     currentSetsArray.target.currentArray.push({
         'weight': +weightInput.value,
@@ -44,7 +48,9 @@ const createCurrentSet = (currentSetsArray) => {
 
 const saveSetToStorage = (event) => {
     const { name, exercise, currentSets } = event.target;
-    console.log(name, exercise, currentSets);
+    console.log(name);
+    console.log(exercise);
+    console.log(currentSets);
     // If exercise from localStorage doesn't exist
     if (!exercise) {
         localStorage.setItem(name, JSON.stringify([currentSets]));
@@ -61,18 +67,30 @@ const saveSetToStorage = (event) => {
     currentSetsContainer.innerHTML = '';
 }
 
+const deleteSetFromStorage = e => {
+    const setToDelete = JSON.parse(localStorage.getItem(e.target.name));
+    const setId = e.target.id;
+    const updatedPastSets = setToDelete.filter(set => set[0].id !== setId);
+    if (updatedPastSets.length === 0) {
+        localStorage.setItem(e.target.name, JSON.stringify([]));
+    } else {
+        localStorage.setItem(e.target.name, JSON.stringify(updatedPastSets));
+    }
+    renderPastSets(e.target.name);
+}
+
 const renderPastSets = (name) => {
     pastSetsContainer.innerHTML = '';
     console.log("Past sets found, adding to past sets");
     const pastSets = JSON.parse(localStorage.getItem(name));
     console.log(pastSets)
-    pastSets.forEach(set => {
+    pastSets.forEach((set, setIndex) => {
         const setToAppend = document.createElement('div');
         setToAppend.className = 'past-set-item';
         set.forEach((setItem, idx) => {
             if (idx === 0) {
                 const dateElement = document.createElement('div');
-                dateElement.textContent = setItem;
+                dateElement.textContent = setItem.date;
                 dateElement.className = 'set-date';
                 setToAppend.appendChild(dateElement);
             } else {
@@ -84,10 +102,17 @@ const renderPastSets = (name) => {
                 setReps.textContent = setItem.reps + 'reps';
                 const setRest = document.createElement('div');
                 setRest.textContent = setItem.rest + 'rest';
+                const deleteButton = document.createElement('div');
+                deleteButton.className = 'delete-set';
+                deleteButton.textContent = 'x';
+                deleteButton.id = set[0].id;
+                deleteButton.addEventListener('click', deleteSetFromStorage);
+                deleteButton.name = name;
                 setInformationDiv.appendChild(setWeight);
                 setInformationDiv.appendChild(setReps);
                 setInformationDiv.appendChild(setRest);
                 setToAppend.appendChild(setInformationDiv);
+                setToAppend.appendChild(deleteButton);
             }
         })
         console.log("Appending Set: " + setToAppend);
@@ -115,6 +140,9 @@ const setCurrentExercise = (name) => {
     if (!exercise || JSON.parse(exercise).length === 0) {
         localStorage.setItem(name, JSON.stringify([]));
         console.log("First time exercising, adding to storage");
+        // Refresh exercise here
+        exercise = localStorage.getItem(name);
+        console.log("Refreshed exercise");
     } else {
         renderPastSets(name);
     }
@@ -122,12 +150,14 @@ const setCurrentExercise = (name) => {
     // Adds a set
     addButton.addEventListener('click', createCurrentSet);
     addButton.currentArray = currentSets;
+    addButton.name = name;
 
     backButton.addEventListener('click', resetState);
 
     saveButton.addEventListener('click', saveSetToStorage);
     saveButton.name = name;
     saveButton.exercise = exercise;
+    console.log(exercise);
     saveButton.currentSets = currentSets;
 }
 

@@ -1,3 +1,5 @@
 Features to implement:
-- Editing/Deleting past sets?
-- Charts to visualise progress
+[ ] Editing Past Sets
+[X] Delete Past Sets
+[ ] Charts to visualise progress
+[ ] Refactor element creation function
