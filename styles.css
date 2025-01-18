@@ -62,7 +62,7 @@ button {
 #add-menu #setInput .input-item {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 25%;
   justify-content: center;
   gap: 0.5rem;
 }
@@ -74,6 +74,16 @@ button {
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
   color: white;
   text-align: center;
+}
+#add-menu #setInput .input-item .input-group {
+  display: flex;
+  gap: 4px;
+}
+#add-menu #setInput .input-item .input-group input {
+  width: 50%;
+}
+#add-menu #setInput .input-item:last-of-type {
+  width: 35%;
 }
 #add-menu #setInput button {
   margin-top: 1rem;

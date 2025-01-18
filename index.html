@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="/main.js" defer></script>
     <title>&#x1F3CB;Gym Tracker</title>
 </head>
@@ -31,21 +32,24 @@
     </div>
     <div id="add-menu">
         <h2 id="exercise-name"></h2>
-        <div id="setInput">
+        <form id="setInput">
             <div class="input-item">
                 <label for="">Weight</label>
-                <input type="number" class="weightInput">
+                <input required type="number" id="weightInput">
             </div>
             <div class="input-item">
                 <label for="">Reps</label>
-                <input type="number" class="repsInput">
+                <input required type="number" id="repsInput">
             </div>
             <div class="input-item">
                 <label for="">Rest</label>
-                <input type="number" class="restInput">
+                <div class="input-group">
+                    <input type="number" id="restMinutes" placeholder="m">
+                    <input type="number" id="restSeconds" min="0" max="59" placeholder="s">
+                </div>
             </div>
-            <button id="add-set-button">Add Set</button>
-        </div>
+            <button type="submit" id="add-set-button">Add Set</button>
+        </form>
         <div id="current-sets"></div>
         <div id="add-menu-controls">
             <button id="save">Save</button>
@@ -54,6 +58,7 @@
         <h2 id="past-sets-title">Past Sets</h2>
         <div id="past-sets">
         </div>
+        <div id="chart"></div>
     </div>
 </body>
 </html>
