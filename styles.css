@@ -24,7 +24,7 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
   padding: 2rem 1rem;
 }
 #exercise-list .category {
@@ -34,13 +34,26 @@ button {
   align-items: center;
   gap: 1rem;
 }
-#exercise-list .category .exercise {
+#exercise-list .category .category-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5rem;
+}
+#exercise-list .category .category-group .exercise {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  width: 50%;
-  padding: 4rem;
+  width: 85px;
+  padding: 1.25rem 0.75rem;
   background-color: rgb(55, 104, 104);
   border-radius: 10px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+#exercise-list .category .category-group .exercise.complete {
+  background-color: rgb(47, 89, 89);
 }
 
 #add-menu {
@@ -91,16 +104,17 @@ button {
 #add-menu #current-sets {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-}
-#add-menu #current-sets .set {
-  display: flex;
-  gap: 0.5rem;
-  padding: 1rem;
   background-color: rgb(55, 104, 104);
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.05);
   border-radius: 10px;
+}
+#add-menu #current-sets .set-information {
+  display: flex;
   justify-content: center;
+}
+#add-menu #current-sets .set-information div {
+  width: 25%;
+  padding: 0.75rem 0.5rem;
 }
 #add-menu #add-menu-controls {
   display: flex;
@@ -126,13 +140,19 @@ button {
   position: relative;
 }
 #add-menu #past-sets .past-set-item .set-date {
-  text-decoration: underline;
+  margin-bottom: 0.5rem;
 }
 #add-menu #past-sets .past-set-item .set-information {
-  margin-top: 0.5rem;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+#add-menu #past-sets .past-set-item .set-information div {
+  width: 25%;
+  padding: 0.75rem 0.5rem;
+  background-color: rgb(49, 100, 100);
+  border-radius: 10px;
 }
 #add-menu #past-sets .past-set-item .delete-set {
   position: absolute;
@@ -140,4 +160,15 @@ button {
   right: 0;
   margin-top: 0.5rem;
   margin-right: 0.75rem;
+}
+#add-menu .set-header {
+  display: flex;
+  background-color: rgb(49, 100, 100);
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid rgb(85, 137, 137);
+}
+#add-menu .set-header .header {
+  width: 25%;
+  padding: 0.75rem 0.5rem;
+  font-size: 0.875rem;
 }/*# sourceMappingURL=styles.css.map */

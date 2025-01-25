@@ -24,7 +24,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem;
+    gap: 2rem;
     padding: 2rem 1rem;
     .category {
         width: 100%;
@@ -32,13 +32,27 @@ button {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
-        .exercise {
-            text-align: center;
-            width: 50%;
-            padding: 4rem;
-            background-color: rgb(55, 104, 104);
-            border-radius: 10px;
-            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+        .category-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            gap: 0.5rem;
+            .exercise {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 85px;
+                padding: 1.25rem 0.75rem;
+                // padding: 1rem 1.5rem;
+                background-color: rgb(55, 104, 104);
+                border-radius: 10px;
+                box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+                &.complete {
+                    background-color: rgb(47, 89, 89);
+                }
+            }
         }
     }
 }
@@ -90,15 +104,18 @@ button {
     #current-sets {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        .set {
+        // gap: 0.5rem;
+        background-color: rgb(55, 104, 104);
+        box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.05);
+        border-radius: 10px;
+        .set-information {
             display: flex;
-            gap: 0.5rem;
-            padding: 1rem;
-            background-color: rgb(55, 104, 104);
-            box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.05);
-            border-radius: 10px;
+            // gap: 0.5rem;
             justify-content: center;
+            div {
+                width: 25%;
+                padding: 0.75rem 0.5rem;
+            }
         }
     }
     #add-menu-controls {
@@ -123,13 +140,19 @@ button {
             border-radius: 10px;
             position: relative;
             .set-date {
-                text-decoration: underline;
+                margin-bottom: 0.5rem;
             }
             .set-information {
-                margin-top: 0.5rem;
                 display: flex;
                 justify-content: center;
                 gap: 0.5rem;
+                margin-top: 0.25rem;
+                div {
+                    width: 25%;
+                    padding: 0.75rem 0.5rem;
+                    background-color: rgb(49, 100, 100);
+                    border-radius: 10px;
+                }
             }
             .delete-set {
                 position: absolute;
@@ -138,6 +161,17 @@ button {
                 margin-top: 0.5rem;
                 margin-right: 0.75rem;
             }
+        }
+    }
+    .set-header {
+        display: flex;
+        background-color: rgb(49, 100, 100);
+        border-radius: 10px 10px 0 0;
+        border-bottom: 1px solid rgb(85, 137, 137);
+        .header {
+            width: 25%;
+            padding: 0.75rem 0.5rem;
+            font-size: 0.875rem;
         }
     }
 }

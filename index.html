@@ -12,30 +12,42 @@
     <div id="exercise-list">
         <div class="category">
             <h2>Legs &#x1FAE0;</span></h2>
-            <div class="exercise">Squat</div>
-            <div class="exercise">Calf Raise</div>
-            <div class="exercise">BSS</div>
+            <div class="category-group">
+                <div class="exercise">Squat</div>
+                <div class="exercise">Calf Raise</div>
+                <div class="exercise">BSS</div>
+                <div class="exercise">Lower Back Extension</div>
+                <div class="exercise">Cable Crunch</div>
+            </div>
         </div>
         <div class="category">
             <h2>Push &#x1F607;</h2>
-            <div class="exercise">Assisted Dips</div>
-            <div class="exercise">Incline Press</div>
-            <div class="exercise">Tricep Pushdown</div>
+            <div class="category-group">
+                <div class="exercise">Assisted Dips</div>
+                <div class="exercise">Incline Press</div>
+                <div class="exercise">Tricep Pushdown</div>
+                <div class="exercise">DB Lateral Raise</div>
+                <div class="exercise">DB Shrug</div>
+            </div>
         </div>
         <div class="category">
             <h2>Pull &#x1F929;</h2>
-            <div class="exercise">Pullups</div>
-            <div class="exercise">Seated Rows</div>
-            <div class="exercise">Bicep Curls</div>
-            <div class="exercise">Hammer Curls</div>
+            <div class="category-group">
+                <div class="exercise">Pullups</div>
+                <div class="exercise">Seated Rows</div>
+                <div class="exercise">Bicep Curls</div>
+                <div class="exercise">Hammer Curls</div>
+                <div class="exercise">Close Grip Pulldown</div>
+            </div>
         </div>
+        <button id="reset-tracker">Reset Active</button>
     </div>
     <div id="add-menu">
         <h2 id="exercise-name"></h2>
         <form id="setInput">
             <div class="input-item">
                 <label for="">Weight</label>
-                <input required type="number" id="weightInput">
+                <input required type="number" step="0.01" id="weightInput">
             </div>
             <div class="input-item">
                 <label for="">Reps</label>
@@ -56,8 +68,7 @@
             <button id="back-button">Back</button>
         </div>
         <h2 id="past-sets-title">Past Sets</h2>
-        <div id="past-sets">
-        </div>
+        <div id="past-sets"></div>
         <div id="chart"></div>
     </div>
 </body>
