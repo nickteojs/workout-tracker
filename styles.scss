@@ -18,6 +18,10 @@ button {
     box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
     color: white;
     border-radius: 10px;
+    &:disabled {
+        background-color: grey;
+        color: rgb(81, 81, 81);
+    }
 }
 
 #exercise-list {
@@ -113,8 +117,11 @@ button {
             // gap: 0.5rem;
             justify-content: center;
             div {
-                width: 25%;
+                width: 20%;
                 padding: 0.75rem 0.5rem;
+                &:last-of-type {
+                    width: 40%;
+                }
             }
         }
     }
@@ -145,13 +152,15 @@ button {
             .set-information {
                 display: flex;
                 justify-content: center;
-                gap: 0.5rem;
                 margin-top: 0.25rem;
                 div {
-                    width: 25%;
+                    width: 20%;
                     padding: 0.75rem 0.5rem;
                     background-color: rgb(49, 100, 100);
                     border-radius: 10px;
+                    &:last-of-type {
+                        width: 40%;
+                    }
                 }
             }
             .delete-set {
@@ -169,9 +178,12 @@ button {
         border-radius: 10px 10px 0 0;
         border-bottom: 1px solid rgb(85, 137, 137);
         .header {
-            width: 25%;
+            width: 20%;
             padding: 0.75rem 0.5rem;
             font-size: 0.875rem;
+            &:last-of-type {
+                width: 40%;
+            }
         }
     }
 }

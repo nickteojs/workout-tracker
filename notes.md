@@ -1,9 +1,9 @@
 Features to implement:\
 [ ] Editing Past Sets\
 [ ] Charts to visualise progress\
-[ ] Duplicate set functionality\
 [ ] Delete current set\
 [ ] Redesign how sets are displayed\
+[X] Duplicate set functionality\
 [X] Home page overview to keep track of completed exercises\
 [X] Refactor element creation function\
 [X] Refactor functions to use global states

@@ -4,6 +4,7 @@ const exerciseName = document.querySelector('#exercise-name');
 
 const addMenu = document.querySelector('#add-menu');
 const addButton = document.querySelector('#add-set-button');
+const dupeSetButton = document.querySelector('#dupe-set-button');
 const backButton = document.querySelector('#back-button');
 const saveButton = document.querySelector('#save');
 const pastSetsContainer = document.querySelector("#past-sets");
@@ -20,6 +21,7 @@ const resetButton = document.querySelector('#reset-tracker');
 // Initialise global states
 let currentExercise;
 let setGroup;
+let previousSet;
 
 const completeTracker = JSON.parse(localStorage.getItem('completion'));
 
@@ -176,6 +178,14 @@ const createCurrentSet = (e) => {
         'restMinutes': +restMinutes.value,
         'restSeconds': +restSeconds.value
     });
+    // Save current set for duplication
+    previousSet = {
+        'weight': +weightInput.value,
+        'reps': +repsInput.value,
+        'restMinutes': +restMinutes.value,
+        'restSeconds': +restSeconds.value
+    }
+    dupeSetButton.disabled = false;
     // Create new DOM element with set information
     const newSet = createSetElement({
         index: setGroup.sets.length,
@@ -183,7 +193,6 @@ const createCurrentSet = (e) => {
         reps: repsInput.value,
         rest: formatRestTime(+restMinutes.value, +restSeconds.value)
     }, 'current');
-
     // Append new set to the DOM
     currentSetsContainer.appendChild(newSet);
     // Reset input values
@@ -191,9 +200,33 @@ const createCurrentSet = (e) => {
     repsInput.value = '';
     restMinutes.value = '';
     restSeconds.value = '';
+    // Update save state
+    saveButton.disabled = false;
+}
+
+const duplicatePastSet = () => {
+    // Fetch values from previousSet
+    if (previousSet !== undefined) {
+        setGroup.sets.push({
+            'weight': previousSet.weight,
+            'reps': previousSet.reps,
+            'restMinutes': previousSet.restMinutes,
+            'restSeconds': previousSet.restSeconds
+        });
+        const newSet = createSetElement({
+            index: setGroup.sets.length,
+            weight: previousSet.weight,
+            reps: previousSet.reps,
+            rest: formatRestTime(previousSet.restMinutes, previousSet.restSeconds)
+        }, 'current');
+        currentSetsContainer.appendChild(newSet);
+    }
 }
 
 const saveSetToStorage = () => {
+    // Reset states
+    previousSet = undefined;
+    dupeSetButton.disabled = true;
     // Fetch exercises from localStorage
     const exerciseToUpdate = JSON.parse(localStorage.getItem(currentExercise));
     // If there are no past sets
@@ -214,6 +247,8 @@ const saveSetToStorage = () => {
     currentSetsContainer.innerHTML = '';
     // Update global tracker
     updateCompleteTracker('add');
+    // Update save button state
+    saveButton.disabled = true;
 }
 
 const deleteSetFromStorage = e => {
@@ -268,6 +303,8 @@ const setCurrentExercise = (name) => {
     // Update global states
     currentExercise = name;
     setGroup = {};
+    previousSet = undefined;
+    dupeSetButton.disabled = true;
     // Editing DOM elements to reflect current exercise
     exerciseName.textContent = name;
     exerciseList.style.display = 'none';
@@ -286,6 +323,7 @@ const setCurrentExercise = (name) => {
     
     // Setup event listeners
     exerciseForm.addEventListener('submit', createCurrentSet);
+    dupeSetButton.addEventListener('click', duplicatePastSet);
     backButton.addEventListener('click', resetState);
     saveButton.addEventListener('click', saveSetToStorage);
 }

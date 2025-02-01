@@ -19,6 +19,10 @@ button {
   color: white;
   border-radius: 10px;
 }
+button:disabled {
+  background-color: grey;
+  color: rgb(81, 81, 81);
+}
 
 #exercise-list {
   display: flex;
@@ -113,8 +117,11 @@ button {
   justify-content: center;
 }
 #add-menu #current-sets .set-information div {
-  width: 25%;
+  width: 20%;
   padding: 0.75rem 0.5rem;
+}
+#add-menu #current-sets .set-information div:last-of-type {
+  width: 40%;
 }
 #add-menu #add-menu-controls {
   display: flex;
@@ -145,14 +152,16 @@ button {
 #add-menu #past-sets .past-set-item .set-information {
   display: flex;
   justify-content: center;
-  gap: 0.5rem;
   margin-top: 0.25rem;
 }
 #add-menu #past-sets .past-set-item .set-information div {
-  width: 25%;
+  width: 20%;
   padding: 0.75rem 0.5rem;
   background-color: rgb(49, 100, 100);
   border-radius: 10px;
+}
+#add-menu #past-sets .past-set-item .set-information div:last-of-type {
+  width: 40%;
 }
 #add-menu #past-sets .past-set-item .delete-set {
   position: absolute;
@@ -168,7 +177,10 @@ button {
   border-bottom: 1px solid rgb(85, 137, 137);
 }
 #add-menu .set-header .header {
-  width: 25%;
+  width: 20%;
   padding: 0.75rem 0.5rem;
   font-size: 0.875rem;
+}
+#add-menu .set-header .header:last-of-type {
+  width: 40%;
 }/*# sourceMappingURL=styles.css.map */
