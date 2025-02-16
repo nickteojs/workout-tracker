@@ -1,8 +1,9 @@
 Features to implement:\
-[ ] Editing Past Sets\
+[ ] Adding and Editing Past Sets\
 [ ] Charts to visualise progress\
 [ ] Delete current set\
 [ ] Redesign how sets are displayed\
+[ ] Add new workouts\
 [X] Duplicate set functionality\
 [X] Home page overview to keep track of completed exercises\
 [X] Refactor element creation function\
